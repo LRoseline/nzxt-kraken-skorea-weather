@@ -13,7 +13,7 @@ function App() {
     const [outTemp, setOutTemp] = useState("23");
 
     const weatherAxi = () => {
-        axios.get("https://api.tsukimorifriends.xyz/api/weather/current/온천동?authkey="+process.env.REACT_APP_TEST_KEY).then(r => {
+        axios.get("https://api.tsukimorifriends.xyz/api/weather/current/온천동?authkey="+process.env.REACT_APP_PRODUCT_KEY).then(r => {
             setWeather(r.data.body.weather.current.weather[0].icon);
             setOutTemp(Math.floor(r.data.body.weather.current.temp));
         }).catch(e => {
