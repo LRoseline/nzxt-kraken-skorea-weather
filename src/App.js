@@ -70,7 +70,7 @@ function App() {
 
     return (
         <div>
-            <div className="elias" style={{backgroundImage: `radial-gradient(#0000, #000F), url(${"/weather/"+weather+".png"})`}}>
+            <div className="elias" style={{backgroundImage: `radial-gradient(#0000, #000F), url(${+process.env.PUBLIC_URL+"/weather/"+weather+".png"})`}}>
                 <div className="circle">
                     <div className="clock">{clock}</div>
                     <div className="cpu">
