@@ -1,38 +1,62 @@
-.App {
+@font-face {
+  font-family: 'SuseongHyejeong';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2205-2@1.0/SuseongHyejeong.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.elias {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.circle {
+  z-index: 3;
+  width: 100%;
+  color: #FFF;
+  text-shadow: 0 0 5px black;
+}
+
+.clock {
+  margin-top: 0.5cm;
+  font-family: 'SuseongHyejeong';
+  text-align: center;
+  font-size: 1.5cm;
+}
+
+.cpu {
+  width: 100%;
+  display: flex;
+}
+
+.cpu > div {
+  width: 50%;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.tabo {
+  font-size: 0.9cm;
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.tabo-value {
+  font-size: 1.2cm;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.bottom {
+  z-index: 3;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.5cm;
+  color: #FFF;
+  text-shadow: 0 0 5px black;
+  text-align: center;
 }
