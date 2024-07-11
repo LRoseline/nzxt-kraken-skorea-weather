@@ -8,7 +8,7 @@ function App() {
     const [ram, setRam] = useState(null);
     const [kraken, setKraken] = useState(null);
 
-    const [cpuT,setCpuT] = useState(40);
+    const [cpuT, setCpuT] = useState(40);
     const [liquid, setLiquid] = useState(30);
     const [weather, setWeather] = useState("01d");
     const [outTemp, setOutTemp] = useState("-20");
@@ -25,7 +25,7 @@ function App() {
         window.nzxt = {
             v1: {
                 onMonitoringDataUpdate: (data) => {
-                    const {cpus, gpus, ram, kraken} = data;
+                    const { cpus, gpus, ram, kraken } = data;
 
                     setCpus(cpus);
                     setGpus(gpus);
@@ -40,56 +40,54 @@ function App() {
     }, []);
 
     const timeFormatZ = (ints) => {
-        if (ints < 10) {
-            return ints = "0"+ints;
-        }
-
-        return ints;
-    }
+        return ints < 10 ? "0" + ints : ints;
+    };
 
     const weatherAxi = () => {
         const dustGrade = (value) => {
             switch (value) {
                 case -1:
-                    return "#aa80ff"
+                    return "#aa80ff";
                 case 1:
-                    return "#66e0ff"
+                    return "#66e0ff";
                 case 2:
-                    return "#66ff66"
+                    return "#66ff66";
                 case 3:
-                    return "#ff9933"
+                    return "#ff9933";
                 case 4:
-                    return "#ff3333"
+                    return "#ff3333";
                 default:
                     return "#ffffff";
             }
         };
 
-        axios.get("https://api.tsukimorifriends.xyz/api/weather/current/온천동?authkey="+process.env.REACT_APP_PRODUCT_KEY).then(r => {
-            const result = r.data.body;
-            setWeather(result.weather.current.weather[0].icon);
-            setOutTemp(Math.floor(result.weather.current.temp));
+        axios.get("https://api.tsukimorifriends.xyz/api/weather/current/온천동?authkey=" + process.env.REACT_APP_PRODUCT_KEY)
+            .then(r => {
+                const result = r.data.body;
+                setWeather(result.weather.current.weather[0].icon);
+                setOutTemp(Math.floor(result.weather.current.temp));
 
-            setPm10v(result.dust.pm10v);
-            setPm25v(result.dust.pm25v);
+                setPm10v(result.dust.pm10v);
+                setPm25v(result.dust.pm25v);
 
-            setPm10g(dustGrade(result.dust.pm10g));
-            setPm25g(dustGrade(result.dust.pm25g));
-        }).catch(e => {
-            setWeather("Error Data");
-        });
-    }
-
+                setPm10g(dustGrade(result.dust.pm10g));
+                setPm25g(dustGrade(result.dust.pm25g));
+            }).catch(e => {
+                setWeather("Error Data");
+            });
+    };
 
     useEffect(() => {
+        weatherAxi(); // Initial weather data fetch
+
         const weatherTimer = setInterval(() => {
             weatherAxi();
-        }, 1000*60*60);
+        }, 1000 * 60 * 10); // Fetch weather data every 10 minutes
 
         return () => {
             clearInterval(weatherTimer);
-        }
-    })
+        };
+    }, []); // Only run on component mount
 
     useEffect(() => {
         const Timer = setInterval(() => {
@@ -105,16 +103,12 @@ function App() {
 
         return () => {
             clearInterval(Timer);
-        }
-    });
-
-    useEffect(() => {
-        weatherAxi();
-    }, []);
+        };
+    }, []); // Only run on component mount
 
     return (
         <div>
-            <div className="elias" style={{backgroundImage: `radial-gradient(#0000, #000F), url(${"https://lroseline.github.io/kraken-new-playground/weather/"+weather+".png"})`}}>
+            <div className="elias" style={{ backgroundImage: `radial-gradient(#0000, #000F), url(${"https://lroseline.github.io/kraken-new-playground/weather/" + weather + ".png"})` }}>
                 <div className="circle">
                     <div className="clock">{clock}</div>
                     <div className="cpu">
@@ -131,7 +125,7 @@ function App() {
                 <div className="bottom">
                     <div className="pm10">
                         <div>
-                            <span style={{boxShadow: '0 3px 0 '+pm10g}}>PM10</span>
+                            <span style={{ boxShadow: '0 3px 0 ' + pm10g }}>PM10</span>
                         </div>
                         <div className="bottom-value-small">{pm10v}</div>
                     </div>
@@ -141,7 +135,7 @@ function App() {
                     </div>
                     <div className="pm25">
                         <div>
-                            <span style={{boxShadow: '0 3px 0 '+pm25g}}>PM25</span>
+                            <span style={{ boxShadow: '0 3px 0 ' + pm25g }}>PM25</span>
                         </div>
                         <div className="bottom-value-small">{pm25v}</div>
                     </div>
