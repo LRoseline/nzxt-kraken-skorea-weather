@@ -78,16 +78,16 @@ function App() {
     };
 
     useEffect(() => {
-        weatherAxi(); // Initial weather data fetch
+        weatherAxi();
 
         const weatherTimer = setInterval(() => {
             weatherAxi();
-        }, 1000 * 60 * 10); // Fetch weather data every 10 minutes
+        }, 1000 * 60 * 10);
 
         return () => {
             clearInterval(weatherTimer);
         };
-    }, []); // Only run on component mount
+    }, []);
 
     useEffect(() => {
         const Timer = setInterval(() => {
@@ -104,8 +104,8 @@ function App() {
         return () => {
             clearInterval(Timer);
         };
-    }, []); // Only run on component mount
-
+    }, []);
+    
     return (
         <div>
             <div className="elias" style={{ backgroundImage: `radial-gradient(#0000, #000F), url(${"https://lroseline.github.io/kraken-new-playground/weather/" + weather + ".png"})` }}>
