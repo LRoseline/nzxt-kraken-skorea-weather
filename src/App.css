@@ -14,13 +14,14 @@
   z-index: 0;
   background-repeat: no-repeat;
   background-size: cover;
+  -webkit-text-stroke: 2px black;
+  color: #FFF;
+  text-shadow: 0 0 5px black;
 }
 
 .circle {
   z-index: 3;
   width: 100%;
-  color: #FFF;
-  text-shadow: 0 0 5px black;
 }
 
 .clock {
@@ -56,7 +57,5 @@
   bottom: 0;
   width: 100%;
   font-size: 0.5cm;
-  color: #FFF;
-  text-shadow: 0 0 5px black;
   text-align: center;
 }

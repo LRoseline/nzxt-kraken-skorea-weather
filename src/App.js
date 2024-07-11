@@ -12,15 +12,6 @@ function App() {
     const [weather, setWeather] = useState("01d");
     const [outTemp, setOutTemp] = useState("23");
 
-    const weatherAxi = () => {
-        axios.get("https://api.tsukimorifriends.xyz/api/weather/current/온천동?authkey="+process.env.REACT_APP_PRODUCT_KEY).then(r => {
-            setWeather(r.data.body.weather.current.weather[0].icon);
-            setOutTemp(Math.floor(r.data.body.weather.current.temp));
-        }).catch(e => {
-            setWeather("Error Data");
-        });
-    }
-
     useEffect(() => {
         window.nzxt = {
             v1: {
@@ -49,6 +40,25 @@ function App() {
         return ints;
     }
 
+    const weatherAxi = () => {
+        axios.get("https://api.tsukimorifriends.xyz/api/weather/current/온천동?authkey="+process.env.REACT_APP_PRODUCT_KEY).then(r => {
+            setWeather(r.data.body.weather.current.weather[0].icon);
+            setOutTemp(Math.floor(r.data.body.weather.current.temp));
+        }).catch(e => {
+            setWeather("Error Data");
+        });
+    }
+
+    useEffect(() => {
+        const weatherTimer = setInterval(() => {
+            weatherAxi();
+        }, 1000*60*60);
+
+        return () => {
+            clearInterval(weatherTimer);
+        }
+    })
+
     useEffect(() => {
         const Timer = setInterval(() => {
             let time = new Date();
@@ -56,21 +66,18 @@ function App() {
             setClock(timeFormatZ(time.getHours())+":"+timeFormatZ(time.getMinutes()));
         }, 1000);
 
-        weatherAxi();
-
-        const weatherTimer = setInterval(() => {
-            weatherAxi();
-        }, 1000*60*60);
-
         return () => {
             clearInterval(Timer);
-            clearInterval(weatherTimer);
         }
     });
 
+    useEffect(() => {
+        weatherAxi();
+    }, []);
+
     return (
         <div>
-            <div className="elias" style={{backgroundImage: `radial-gradient(#0000, #000F), url(${+process.env.PUBLIC_URL+"/weather/"+weather+".png"})`}}>
+            <div className="elias" style={{backgroundImage: `radial-gradient(#0000, #000F), url(${"https://lroseline.github.io/kraken-new-playground/weather/"+weather+".png"})`}}>
                 <div className="circle">
                     <div className="clock">{clock}</div>
                     <div className="cpu">
