@@ -18,6 +18,8 @@ function App() {
 
     const [pm10g, setPm10g] = useState("000");
     const [pm25g, setPm25g] = useState("000");
+    
+    const [clock, setClock] = useState("00:00");
 
     useEffect(() => {
         window.nzxt = {
@@ -36,9 +38,6 @@ function App() {
             }
         };
     }, []);
-
-
-    const [clock, setClock] = useState("00:00");
 
     const timeFormatZ = (ints) => {
         if (ints < 10) {
@@ -95,8 +94,13 @@ function App() {
     useEffect(() => {
         const Timer = setInterval(() => {
             let time = new Date();
+            let hours = time.getHours();
+            let minutes = time.getMinutes();
 
-            setClock(timeFormatZ(time.getHours())+":"+timeFormatZ(time.getMinutes()));
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+
+            setClock(timeFormatZ(hours) + ":" + timeFormatZ(minutes));
         }, 1000);
 
         return () => {
