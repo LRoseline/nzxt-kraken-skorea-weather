@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/kraken-new-playground/static/css/main.f1dac539.css",
+    "main.css": "/kraken-new-playground/static/css/main.2996d741.css",
     "main.js": "/kraken-new-playground/static/js/main.37241470.js",
     "static/js/453.6a1dff58.chunk.js": "/kraken-new-playground/static/js/453.6a1dff58.chunk.js",
     "index.html": "/kraken-new-playground/index.html",
-    "main.f1dac539.css.map": "/kraken-new-playground/static/css/main.f1dac539.css.map",
+    "main.2996d741.css.map": "/kraken-new-playground/static/css/main.2996d741.css.map",
     "main.37241470.js.map": "/kraken-new-playground/static/js/main.37241470.js.map",
     "453.6a1dff58.chunk.js.map": "/kraken-new-playground/static/js/453.6a1dff58.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f1dac539.css",
+    "static/css/main.2996d741.css",
     "static/js/main.37241470.js"
   ]
 }
