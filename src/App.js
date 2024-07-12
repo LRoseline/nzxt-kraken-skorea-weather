@@ -78,14 +78,43 @@ function App() {
     };
 
     useEffect(() => {
-        weatherAxi();
+        console.log("Anti-SLEEP-WORKING");
 
-        const weatherTimer = setInterval(() => {
-            weatherAxi();
-        }, 1000 * 60 * 10);
+        const noSleep = setInterval(() => {
+            console.log("Anti-SLEEP-WORKING");
+        }, 1000*60*10);
 
         return () => {
-            clearInterval(weatherTimer);
+            clearInterval(noSleep);
+        }
+    }, []);
+
+    useEffect(() => {
+        const calculateInitialDelay = () => {
+            const now = new Date();
+            const currentMinutes = now.getMinutes();
+            const currentSeconds = now.getSeconds();
+            const next6thMinute = currentMinutes < 6 ? 6 : 60 + 6;
+            const delayMinutes = next6thMinute - currentMinutes;
+            return ((delayMinutes * 60) - currentSeconds) * 1000;
+        };
+
+        const initialDelay = calculateInitialDelay();
+        
+        const initialTimeout = setTimeout(() => {
+            weatherAxi();
+
+            const weatherTimer = setInterval(() => {
+                weatherAxi();
+            }, 1000 * 60 * 60);
+
+            return () => {
+                clearInterval(weatherTimer);
+            };
+        }, initialDelay);
+
+        return () => {
+            clearTimeout(initialTimeout);
         };
     }, []);
 
@@ -108,6 +137,7 @@ function App() {
     
     return (
         <div>
+            <div className="circle-test" />
             <div className="elias" style={{ backgroundImage: `radial-gradient(#0000, #000F), url(${"https://lroseline.github.io/kraken-new-playground/weather/" + weather + ".png"})` }}>
                 <div className="circle">
                     <div className="clock">{clock}</div>
