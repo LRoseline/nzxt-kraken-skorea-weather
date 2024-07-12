@@ -90,6 +90,8 @@ function App() {
     }, []);
 
     useEffect(() => {
+        weatherAxi();
+        
         const calculateInitialDelay = () => {
             const now = new Date();
             const currentMinutes = now.getMinutes();
