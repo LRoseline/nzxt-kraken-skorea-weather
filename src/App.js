@@ -64,14 +64,17 @@ function App() {
         axios.get("https://api.tsukimorifriends.xyz/api/weather/current/온천동?authkey=" + process.env.REACT_APP_PRODUCT_KEY)
             .then(r => {
                 const result = r.data.body;
-                setWeather(result.weather.current.weather[0].icon);
-                setOutTemp(Math.floor(result.weather.current.temp));
+                const weatherbody = result.weather.hourly[0];
+                const dustbody = result.dust;
 
-                setPm10v(result.dust.pm10v);
-                setPm25v(result.dust.pm25v);
+                setWeather(weatherbody.weather[0].icon);
+                setOutTemp(Math.floor(weatherbody.temp));
 
-                setPm10g(dustGrade(result.dust.pm10g));
-                setPm25g(dustGrade(result.dust.pm25g));
+                setPm10v(dustbody.pm10v);
+                setPm25v(dustbody.pm25v);
+
+                setPm10g(dustGrade(dustbody.pm10g));
+                setPm25g(dustGrade(dustbody.pm25g));
             }).catch(e => {
                 setWeather("Error Data");
             });
