@@ -9,6 +9,8 @@ function App() {
     const [kraken, setKraken] = useState(null);
 
     const [cpuT, setCpuT] = useState(40);
+    const [gpuT, setGpuT] = useState(60);
+
     const [liquid, setLiquid] = useState(30);
     const [weather, setWeather] = useState("01d");
     const [outTemp, setOutTemp] = useState("-20");
@@ -34,6 +36,8 @@ function App() {
 
                     setCpuT(Math.floor(cpus[0].temperature));
                     setLiquid(kraken.liquidTemperature);
+
+                    setGpuT(gpus[0].temperature);
                 }
             }
         };
@@ -150,6 +154,10 @@ function App() {
                         <div>
                             <div className="tabo">CPU</div>
                             <div className="tabo-value">{cpuT}</div>
+                        </div>
+                        <div>
+                            <div className="tabo">GPU</div>
+                            <div className="tabo-value">{gpuT}</div>
                         </div>
                         <div>
                             <div className="tabo">AIO</div>
