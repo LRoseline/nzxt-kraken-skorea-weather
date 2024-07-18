@@ -1,6 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 function App() {
     const [cpus, setCpus] = useState(null);
@@ -23,11 +24,15 @@ function App() {
     
     const [clock, setClock] = useState("00:00");
 
+    const [datas, setDatas] = useState(null);
+
     useEffect(() => {
         window.nzxt = {
             v1: {
                 onMonitoringDataUpdate: (data) => {
                     const { cpus, gpus, ram, kraken } = data;
+
+                    setDatas(data);
 
                     setCpus(cpus);
                     setGpus(gpus);
@@ -65,7 +70,7 @@ function App() {
             }
         };
 
-        axios.get("https://api.tsukimorifriends.xyz/api/weather/current/온천동?authkey=" + process.env.REACT_APP_PRODUCT_KEY)
+        axios.get("https://api.tsukimorifriends.xyz/api/weather/current/온천동?authkey=" + process.env.REACT_APP_TEST_KEY)
             .then(r => {
                 const result = r.data.body;
                 const weatherbody = result.weather.hourly[0];
@@ -150,20 +155,34 @@ function App() {
             <div className="elias" style={{ backgroundImage: `radial-gradient(#0000, #000F), url(${"https://lroseline.github.io/kraken-new-playground/weather/" + weather + ".png"})` }}>
                 <div className="circle">
                     <div className="clock">{clock}</div>
-                    <div className="cpu">
-                        <div>
-                            <div className="tabo">CPU</div>
-                            <div className="tabo-value">{cpuT}</div>
-                        </div>
-                        <div>
-                            <div className="tabo">GPU</div>
-                            <div className="tabo-value">{gpuT}</div>
-                        </div>
-                        <div>
-                            <div className="tabo">AIO</div>
-                            <div className="tabo-value">{liquid}</div>
-                        </div>
-                    </div>
+                {
+                    datas != null ?
+                        (
+                            <div className="cpu">
+                                <div>
+                                    <div className="tabo">CPU</div>
+                                    <div className="tabo-value">{cpuT}</div>
+                                </div>
+                                <div>
+                                    <div className="tabo">GPU</div>
+                                    <div className="tabo-value">{gpuT}</div>
+                                </div>
+                                <div>
+                                    <div className="tabo">AIO</div>
+                                    <div className="tabo-value">{liquid}</div>
+                                </div>
+                            </div>
+                        ) :
+                        (
+                            <div style={{padding: "0 10%", fontFamily: "맑은 고딕", WebkitTextStroke: "0"}}>
+                                <h2>안내사항</h2>
+                                <div>
+                                    크라켄 쿨러의 LCD로 로드할 경우, 수치가 정상적으로 나옵니다.<br />
+                                </div>
+                                <Link to="/serial" style={{color: "#DDD", TextDecoration: "none", fontSize: "24px"}} rel="noopener noreferrer">날씨 정보를 불러오기 위한 API설정 페이지는 여기를 클릭하세요!</Link>
+                            </div>
+                        )
+                    }
                 </div>
                 <div className="bottom">
                     <div className="pm10">
