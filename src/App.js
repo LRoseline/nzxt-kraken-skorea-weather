@@ -179,7 +179,6 @@ function App() {
                                 <div>
                                     크라켄 쿨러의 LCD로 로드할 경우, 수치가 정상적으로 나옵니다.<br />
                                 </div>
-                                <Link to="/serial" style={{color: "#DDD", TextDecoration: "none", fontSize: "24px"}} rel="noopener noreferrer">날씨 정보를 불러오기 위한 API설정 페이지는 여기를 클릭하세요!</Link>
                             </div>
                         )
                     }

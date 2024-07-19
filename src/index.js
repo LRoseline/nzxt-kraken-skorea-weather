@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import JsonEx from './JsonEx';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
@@ -11,7 +10,6 @@ root.render(
     <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Routes>
             <Route path="/" element={<App />} />
-            <Route path="/serial" element={<JsonEx />} />
         </Routes>
     </BrowserRouter>
 );
