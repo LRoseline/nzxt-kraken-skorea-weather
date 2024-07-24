@@ -70,7 +70,7 @@ function App() {
             }
         };
 
-        axios.get("https://api.tsukimorifriends.xyz/api/weather/current/온천동?authkey=" + process.env.REACT_APP_TEST_KEY)
+        axios.get("https://api.tsukimorifriends.xyz/api/weather/current/온천동?authkey=" + process.env.REACT_APP_PRODUCT_KEY)
             .then(r => {
                 const result = r.data.body;
                 const weatherbody = result.weather.hourly[0];
