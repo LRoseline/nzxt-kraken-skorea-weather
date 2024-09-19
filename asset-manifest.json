@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/nzxt-kraken-skorea-weather/static/css/main.298b367c.css",
-    "main.js": "/nzxt-kraken-skorea-weather/static/js/main.0a1ee406.js",
+    "main.js": "/nzxt-kraken-skorea-weather/static/js/main.0d2883e4.js",
     "static/js/453.bf47edbd.chunk.js": "/nzxt-kraken-skorea-weather/static/js/453.bf47edbd.chunk.js",
     "index.html": "/nzxt-kraken-skorea-weather/index.html",
     "main.298b367c.css.map": "/nzxt-kraken-skorea-weather/static/css/main.298b367c.css.map",
-    "main.0a1ee406.js.map": "/nzxt-kraken-skorea-weather/static/js/main.0a1ee406.js.map",
+    "main.0d2883e4.js.map": "/nzxt-kraken-skorea-weather/static/js/main.0d2883e4.js.map",
     "453.bf47edbd.chunk.js.map": "/nzxt-kraken-skorea-weather/static/js/453.bf47edbd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.298b367c.css",
-    "static/js/main.0a1ee406.js"
+    "static/js/main.0d2883e4.js"
   ]
 }
