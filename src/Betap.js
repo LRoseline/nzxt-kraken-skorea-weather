@@ -158,7 +158,7 @@ function Betap() {
     return (
         <div>
             <div className="circle-test" />
-            <div className="elias" style={{ backgroundImage: `radial-gradient(#0000, #000F), url(${"https://lroseline.github.io/kraken-new-playground/weather/" + weather + ".png"})` }}>
+            <div className="elias" style={{ backgroundImage: `radial-gradient(#0000, #000F), url(${"https://lroseline.github.io/nzxt-kraken-skorea-weather/weather/" + weather + ".png"})` }}>
                 <div className="circle">
                     <div className="clock">{clock}</div>
                 {
