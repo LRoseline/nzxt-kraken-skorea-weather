@@ -2,7 +2,7 @@
   "name": "kraken-playground-v2",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://lroseline.github.io/kraken-new-playground",
+  "homepage": "https://lroseline.github.io/nzxt-kraken-skorea-weather/",
   "dependencies": {
     "@nzxt/web-integrations-types": "^0.4.0",
     "@testing-library/jest-dom": "^5.17.0",
