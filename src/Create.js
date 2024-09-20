@@ -15,10 +15,7 @@ function Create() {
         const datakr = document.querySelector("#datagokr-key").value;
         const station = document.querySelector("#station").value;
 
-        console.log(process.env.PUBLIC_URL);
-        
-        result.value =  process.env.PUBLIC_URL+
-                        "/?wkey="+wkey+
+        result.value =  "https://lroseline.github.io/nzxt-kraken-skorea-weather/?wkey="+wkey+
                         "&lat="+lat+
                         "&lon="+lon+
                         "&dustkey="+datakr+

@@ -20,8 +20,8 @@ function Betap() {
     const station = urlParams.get('station');
     
     const [liquid, setLiquid] = useState(30);
-    const [weather, setWeather] = useState("01d");
-    const [outTemp, setOutTemp] = useState("-20");
+    const [weather, setWeather] = useState(null);
+    const [outTemp, setOutTemp] = useState("000");
 
     const [pm10v, setPm10v] = useState("000");
     const [pm25v, setPm25v] = useState("000");
