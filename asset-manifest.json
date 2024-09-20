@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "https://lroseline.github.io/nzxt-kraken-skorea-weather/static/css/main.8986bc1e.css",
-    "main.js": "https://lroseline.github.io/nzxt-kraken-skorea-weather/static/js/main.bd28b80f.js",
+    "main.js": "https://lroseline.github.io/nzxt-kraken-skorea-weather/static/js/main.f2f800a0.js",
     "static/js/453.bf47edbd.chunk.js": "https://lroseline.github.io/nzxt-kraken-skorea-weather/static/js/453.bf47edbd.chunk.js",
     "index.html": "https://lroseline.github.io/nzxt-kraken-skorea-weather/index.html",
     "main.8986bc1e.css.map": "https://lroseline.github.io/nzxt-kraken-skorea-weather/static/css/main.8986bc1e.css.map",
-    "main.bd28b80f.js.map": "https://lroseline.github.io/nzxt-kraken-skorea-weather/static/js/main.bd28b80f.js.map",
+    "main.f2f800a0.js.map": "https://lroseline.github.io/nzxt-kraken-skorea-weather/static/js/main.f2f800a0.js.map",
     "453.bf47edbd.chunk.js.map": "https://lroseline.github.io/nzxt-kraken-skorea-weather/static/js/453.bf47edbd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8986bc1e.css",
-    "static/js/main.bd28b80f.js"
+    "static/js/main.f2f800a0.js"
   ]
 }
