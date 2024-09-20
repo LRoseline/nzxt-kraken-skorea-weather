@@ -1,6 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 function App() {
     const [cpus, setCpus] = useState(null);
@@ -177,6 +178,8 @@ function App() {
                                 <h2>안내사항</h2>
                                 <div>
                                     크라켄 쿨러의 LCD로 로드할 경우, 수치가 정상적으로 나옵니다.<br />
+                                    URL을 만들어 원하는 위치의 날씨와 미세먼지 위치를 받아올 수 있습니다.<br />
+                                    <Link to="/create">만들러 가기</Link>
                                 </div>
                             </div>
                         )

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import Beta from './Betap';
+import Create from './Create';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
@@ -12,6 +13,7 @@ root.render(
         <Routes>
             <Route path="/beta" element={<App />} />
             <Route path="/" element={<Beta />} />
+            <Route path="/create" element={<Create />} />
         </Routes>
     </BrowserRouter>
 );
