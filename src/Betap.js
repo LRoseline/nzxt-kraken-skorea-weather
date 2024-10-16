@@ -75,12 +75,12 @@ function Betap() {
             }
         };
 
-        axios.get('https://api.openweathermap.org/data/2.5/onecall?units=metric&lat='+lat+'&lon='+lon+'&appid='+wkey).then(r=> {
-            const result = r.data;
-            const weatherbody = result.current;
+        axios.get('https://api.openweathermap.org/data/2.5/weather?units=metric&lat='+lat+'&lon='+lon+'&appid='+wkey).then(r=> {
+            const weatherbody = r.data;
+            // const weatherbody = result.current;
 
             setWeather(weatherbody.weather[0].icon);
-            setOutTemp(Math.floor(weatherbody.temp));
+            setOutTemp(Math.floor(weatherbody.main.temp));
         });
 
         axios.get('https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty?serviceKey='+encodeURIComponent(dustkey)+'&returnType=json&numOfRows=1&pageNo=1&stationName='+encodeURIComponent(station)+'&dataTerm=DAILY&ver=1.0').then(r=> {
