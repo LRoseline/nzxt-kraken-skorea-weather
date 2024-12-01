@@ -58,13 +58,13 @@ function App() {
                 case -1:
                     return "#aa80ff";
                 case 1:
-                    return "#66e0ff";
+                    return "#00ffff";
                 case 2:
-                    return "#66ff66";
+                    return "#00ff00";
                 case 3:
-                    return "#ff9933";
+                    return "#ffff00";
                 case 4:
-                    return "#ff3333";
+                    return "#ff0000";
                 default:
                     return "#ffffff";
             }
